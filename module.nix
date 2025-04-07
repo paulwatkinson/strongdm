@@ -48,14 +48,7 @@ in {
         SDM_HOME = cfg.workingDirectory;
       };
 
-      after = [
-        "network.target"
-      ];
-
-      wantedBy = [
-        "multi-user.target"
-        "default.target"
-      ];
+      wantedBy = ["default.target"];
     };
 
     environment.systemPackages = [
