@@ -47,7 +47,7 @@ in {
 
       wantedBy = ["default.target"];
 
-      preStart = ''mkdir -p ${cfg.workingDirectory}'';
+      preStart = ''mkdir -p $SDM_HOME'';
     };
 
     environment.systemPackages = [
