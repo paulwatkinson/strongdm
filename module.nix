@@ -53,7 +53,7 @@ in {
       ];
 
       wantedBy = [
-        "network.target"
+        "multi-user.target"
         "default.target"
       ];
     };
