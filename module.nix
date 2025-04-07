@@ -57,5 +57,9 @@ in {
         "default.target"
       ];
     };
+
+    environment.systemPackages = [
+      cfg.package
+    ];
   };
 }

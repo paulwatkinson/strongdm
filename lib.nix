@@ -56,5 +56,7 @@
 
         set +x
       '';
+
+      meta.mainProgram = "sdm";
     };
 }
