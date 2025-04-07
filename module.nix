@@ -38,8 +38,8 @@ in {
 
         ExecStart = let
           script = pkgs.writeShellScript "strongdm-daemon" ''
-            mkdir -p ${cfg.workingDirectory}
-            cd ${cfg.workingDirectory}
+            mkdir -p $SDM_HOME
+            cd $SDM_HOME
             exec ${cfg.package}/bin/sdm listen --daemon
           '';
         in "${script}";
