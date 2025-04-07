@@ -1,6 +1,7 @@
 {package}: {
   lib,
   config,
+  pkgs,
   ...
 }: let
   cfg = config.services.strongdm;
@@ -34,10 +35,17 @@ in {
 
       serviceConfig = {
         Type = "simple";
-        ExecStart = "${cfg.package}/bin/sdm listen --daemon";
+
+        ExecStart = let
+          script = pkgs.writeShellScript "strongdm-daemon" ''
+            mkdir -p ${cfg.workingDirectory}
+            cd ${cfg.workingDirectory}
+            exec ${cfg.package}/bin/sdm listen --daemon
+          '';
+        in "${script}";
+
         Slice = "session.slice";
         Restart = "on-failure";
-        WorkingDirectory = cfg.workingDirectory;
       };
 
       environment = {
@@ -46,8 +54,6 @@ in {
       };
 
       wantedBy = ["default.target"];
-
-      preStart = ''mkdir -p $SDM_HOME'';
     };
 
     environment.systemPackages = [
