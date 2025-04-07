@@ -32,15 +32,12 @@ in {
     systemd.user.services.strongdm-daemon = {
       description = "StrongDM Daemon";
 
-      unitConfig = {
-        WorkingDirectory = cfg.workingDirectory;
-      };
-
       serviceConfig = {
         Type = "simple";
         ExecStart = "${cfg.package}/bin/sdm listen --daemon";
         Slice = "session.slice";
         Restart = "on-failure";
+        WorkingDirectory = cfg.workingDirectory;
       };
 
       environment = {
