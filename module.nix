@@ -46,6 +46,8 @@ in {
       };
 
       wantedBy = ["default.target"];
+
+      preStart = ''mkdir -p ${cfg.workingDirectory}'';
     };
 
     environment.systemPackages = [
