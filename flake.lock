@@ -44,7 +44,7 @@
     "strongdm-releases": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-7E+YBrFDX/wyPefPqEBfu/hqJx72oC2CiNo74L+Yyk0=",
+        "narHash": "sha256-yVSRjKivPhq5LeWmQtjAIjHUZG2xjpqmvJqBRn28rgI=",
         "type": "file",
         "url": "https://app.uk.strongdm.com/release?software=sdm-cli"
       },
